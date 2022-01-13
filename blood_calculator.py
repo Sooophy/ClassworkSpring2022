@@ -4,12 +4,15 @@ def interface():
     while keep_running:
         print("Options:")
         print("1-HDL")
+        print("2-LDL")
         print("9-Quit")
         choice = input("Enter your choice: ")
         if choice == "9":
             keep_running = False
         elif choice == "1":
             HDL_driver()
+        elif choice == "2":
+            LDL_driver()
         return
 
 def accept_input(test_name):
@@ -45,7 +48,7 @@ def HDL_driver():
     HDL_value = accept_input("HDL")
     classification = check_HDL(HDL_value)
     print_result("HDL", HDL_value, classification)
-    
+
 def LDL_driver():
     LDL_value = accept_input("LDL")
     classification = check_LDL(LDL_value)
