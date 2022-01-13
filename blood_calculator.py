@@ -5,7 +5,9 @@ def interface():
         print("Options:")
         print("1-HDL")
         print("2-LDL")
+        print("3-Cholesterol")
         print("9-Quit")
+        
         choice = input("Enter your choice: ")
         if choice == "9":
             keep_running = False
@@ -13,6 +15,8 @@ def interface():
             HDL_driver()
         elif choice == "2":
             LDL_driver()
+        elif choice == "3":
+            Cholesterol_driver()
         return
 
 def accept_input(test_name):
@@ -65,7 +69,7 @@ def LDL_driver():
 
 def Cholesterol_driver():
     Cholesterol_value = accept_input("Cholesterol")
-    classification = check_LDL(Cholesterol_value)
+    classification = check_Cholesterol(Cholesterol_value)
     print_result("Cholesterol", Cholesterol_value, classification)
 
 interface()
