@@ -74,5 +74,5 @@ def Cholesterol_driver():
     classification = check_Cholesterol(Cholesterol_value)
     print_result("Cholesterol", Cholesterol_value, classification)
 
-if __name__ == "_main__":
+if __name__ == "_main__": # always add this to protect your program
     interface()
