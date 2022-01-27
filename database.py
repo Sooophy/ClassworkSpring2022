@@ -1,11 +1,40 @@
-print("This is the database module and python calls it {}".format(__name__))
+def add_patient(patient_name, patient_id, age):
+    new_patient = [patient_name, patient_id, age,[]]
+    return new_patient
 
-import blood_calculator as bc
-# from blood_calculator import*
-# maynot remember where is come from if import*, always better to keep the module name, be readable!
-# python overwrites the function with same name and only keep the most recent one
+def main():
+    db = []
+    x = add_patient("Ann Ables", 342, 40)
+    db.append(x)
+    y = add_patient("Bob Boyles", 50, 50)
+    db.append(y)
+    z = add_patient("Chris Columbus", 111, 35)
+    db.append(z)
+    db. append(add_patient("David Dinkins", 22, 72))
+    found_patient = find_patient(db, 111)
+    print(found_patient)
+    print(db)
+    add_test_to_patient(db, 111, "HDL", 100)
+    print(db)
+    return db
 
+def find_patient(db, id_no):
+    for patient in db:
+        if patient [1] == id_no:
+            return patient
+    return
 
-HDL_value = 55
-classification = bc.check_HDL(HDL_value)
-print("55 is {}".format(classification))
+def add_test_to_patient(db, id_no, test_name, test_result):
+    patient = find_patient(db, id_no)
+    test_tuple = (test_name, test_result)
+    patient[3].append(test_tuple) # change the list here, also changes the list of db, because list is mutable
+
+def print_direcotry(db):
+    rooms = ["Room 13", "Room 12", "Room 99", "Room 3"]
+    for room,patient in zip(rooms, db): # zip: iterate 2 lists with the same lenth together
+        print("{} - {}".format(patient[0], room))
+        # print("Name: {}".format(patient[0]))
+
+if __name__ =="__main__":
+    db = main()
+    print_direcotry(db)
