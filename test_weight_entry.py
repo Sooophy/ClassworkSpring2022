@@ -20,7 +20,7 @@ def test_parse_weight_input(input, expected):
 @pytest.mark.parametrize("a, b, expected", [
     (1, 2, 3),
     ])
-def test_add(a, b):
+def test_add(a, b, expected):
     from weight_entry import add
     answer = add(a, b)
     assert answer == expected
