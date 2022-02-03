@@ -1,6 +1,7 @@
 def add_patient(patient_name, patient_id, age):
-    new_patient = [patient_name, patient_id, age,[]]
+    new_patient = [patient_name, patient_id, age, []]
     return new_patient
+
 
 def main():
     db = []
@@ -18,23 +19,29 @@ def main():
     print(db)
     return db
 
+
 def find_patient(db, id_no):
     for patient in db:
-        if patient [1] == id_no:
+        if patient[1] == id_no:
             return patient
     return
+
 
 def add_test_to_patient(db, id_no, test_name, test_result):
     patient = find_patient(db, id_no)
     test_tuple = (test_name, test_result)
-    patient[3].append(test_tuple) # change the list here, also changes the list of db, because list is mutable
+    patient[3].append(test_tuple)
+    # change the list here, also changes the list of db, list is mutable
+
 
 def print_direcotry(db):
     rooms = ["Room 13", "Room 12", "Room 99", "Room 3"]
-    for room,patient in zip(rooms, db): # zip: iterate 2 lists with the same lenth together
+    # zip: iterate 2 lists with the same lenth together
+    for room, patient in zip(rooms, db):
         print("{} - {}".format(patient[0], room))
         # print("Name: {}".format(patient[0]))
 
-if __name__ =="__main__":
+
+if __name__ == "__main__":
     db = main()
     print_direcotry(db)
