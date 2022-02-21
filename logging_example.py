@@ -18,7 +18,8 @@ def analyze_data_file(filename):
 def process_line(data_line, line_no):
     data_points = data_line.strip("\n").split(",")
     if len(data_points) < 5:
-        logging.warning("The line {} has less than 5 data points".format(line_no))
+        logging.warning("The line {} has\
+            less than 5 data points".format(line_no))
     data_numbers = [float(i) for i in data_points]
     if any(i < 0 for i in data_numbers):
         logging.error("The line {} had a negative number".format(line_no))
@@ -30,5 +31,5 @@ def process_line(data_line, line_no):
 
 
 if __name__ == "__main__":
-    logging.basicConfig(filename = "log_example.log", level = logging.INFO)
+    logging.basicConfig(filename="log_example.log", level=logging.INFO)
     analyze_data_file("tsh_data.txt")
